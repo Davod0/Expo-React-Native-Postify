@@ -1,9 +1,11 @@
+import { NavigatorScreenParams } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import HomeScreen from "../Screens/HomeScreen";
-
+import SettingScreen from "../Screens/SettingScreen";
+import TabStackNavigator, { TabStackParamList } from "./TabStackNavigator";
 
 export type RootStackParamList = {
-  Home: undefined;
+  TabStackNavigator: NavigatorScreenParams<TabStackParamList>;
+  Setting: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -11,7 +13,10 @@ const RootStack = createNativeStackNavigator<RootStackParamList>();
 export default function RootStackNavigator() {
     return(
         <RootStack.Navigator>
-            <RootStack.Screen name="Home" component={HomeScreen} />
+            <RootStack.Screen name="TabStackNavigator" component={TabStackNavigator} 
+               options={{ headerShown: false }}
+            />
+            <RootStack.Screen name="Setting" component={SettingScreen} />
         </RootStack.Navigator>
     );
 }
