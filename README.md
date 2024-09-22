@@ -26,7 +26,7 @@ I denna app ska användaren kunna:
 
 Extrena bibliotek som används i projektet:
 [] React-native-image-picker
-[] React-native-navigation
+[x] React-native-navigation
 
 
 API:er som används i projektet:
