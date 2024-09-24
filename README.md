@@ -19,19 +19,22 @@ I denna app ska användaren kunna:
 
 - Alla React-native komponenter som används i projektet:
 "minst fyra komponenter"
-[]
-[]
-[]
+[x] View
+[x] Text
+[x] StyleSheet
 []
 
 Extrena bibliotek som används i projektet:
-[] React-native-image-picker
 [x] React-native-navigation
+[x] React-hook-form
+[x] zod
+[x] react-native-paper
+[]  React-native-image-picker
 
 
 API:er som används i projektet:
 [] Pexels
-[]
+[] Min egen Node.js server
 
 
 
