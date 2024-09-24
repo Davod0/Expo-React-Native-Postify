@@ -22,13 +22,15 @@ I denna app ska användaren kunna:
 [x] View
 [x] Text
 [x] StyleSheet
-[]
+[x] SafeAreaView
+[x] TextInput
 
 Extrena bibliotek som används i projektet:
 [x] React-native-navigation
 [x] React-hook-form
 [x] zod
-[x] react-native-paper
+[x] hookform-resolvers-zod
+[] react-native-paper
 []  React-native-image-picker
 
 
