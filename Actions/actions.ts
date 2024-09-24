@@ -1,4 +1,4 @@
-import { User } from "../Screens/CreateUserScreen";
+import { User } from "../Components/User/UserSchema";
 
 export async function AddUserToServer(data: User) {
     // return await axios.post('/api/users',data)
