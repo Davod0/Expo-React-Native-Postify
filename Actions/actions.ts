@@ -22,6 +22,7 @@ export async function PostUserToServer(data: User) {
 export async function PostPostObjectToSever(data: Post) {
 
     const id = CreateUniqueId();
+    // userId = users.find(user => user.id === data.userId);
     const post: IPost = {
         id: id,
         title: data.title,

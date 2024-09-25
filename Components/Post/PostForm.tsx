@@ -5,6 +5,7 @@ import { PostPostObjectToSever } from "../../Actions/actions";
 import { Post, PostSchema } from "./PostSchema";
 
 export default function PostForm(){
+    // const { activeUser } = useContext()
 
     const {register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<Post>({
         resolver: zodResolver(PostSchema),
