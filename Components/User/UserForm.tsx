@@ -1,8 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
-import { AddUserToServer } from "../../Actions/actions";
+import { PostUserToServer } from "../../Actions/actions";
 import { User, UserSchema } from "./UserSchema";
+
 
 export default function UserFrom(){
      const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<User>({
@@ -12,7 +13,7 @@ export default function UserFrom(){
 
     const onSubmit = async (data: User) => {
         console.log("Formulärdata:", data);
-        const response = await AddUserToServer(data);
+        const response = await PostUserToServer(data);
         if(isSubmitSuccessful){
             // reset();
         }
