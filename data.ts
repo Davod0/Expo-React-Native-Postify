@@ -16,9 +16,7 @@ export interface IPost {
     userId: string;
 }
 
-
-
-export const users: IUser[] = [
+export const usersList: IUser[] = [
     {
         id: '1',
         firstName: 'John',
@@ -57,7 +55,7 @@ export const users: IUser[] = [
 ];
 
 
-export const posts: IPost[] = [
+export const postsList: IPost[] = [
     {
         id: '101',
         title: 'First Post',

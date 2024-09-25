@@ -2,21 +2,26 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
 import { PostUserToServer } from "../../Actions/actions";
+import { useUser } from "./UserProvider";
 import { User, UserSchema } from "./UserSchema";
 
 
-export default function UserFrom(){
+export default function UserFrom({navigation}: any){
+    
      const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<User>({
         resolver: zodResolver(UserSchema),
         mode: "onBlur",
     });
 
+    const {createUser} = useUser();
+
     const onSubmit = async (data: User) => {
         console.log("Formulärdata:", data);
         const response = await PostUserToServer(data);
-        if(isSubmitSuccessful){
-            // reset();
-        }
+        // reset();
+        createUser(/*data*/);
+        //Efter ett en ny user har skapats ska vi navigera till annan sidan eller en text ska visas
+        navigation.navigate("StartPage"); 
     };
 
     return(

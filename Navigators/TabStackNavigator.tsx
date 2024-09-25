@@ -5,6 +5,7 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Text } from "react-native";
+import { useUser } from '../Components/User/UserProvider';
 import CreatePostScreen from '../Screens/CreatePostScreen';
 import CreateUserScreen from '../Screens/CreateUserScreen';
 import FavoriteScreen from "../Screens/FavoritePostsScreen";
@@ -20,6 +21,8 @@ export type TabStackParamList = {
 const TabStack = createBottomTabNavigator<TabStackParamList>();
 
 export default function TabStackNavigator(){
+
+    const {currentUser} = useUser();
 
     const userId = 1;
     const userName = "Davod";
@@ -62,16 +65,18 @@ export default function TabStackNavigator(){
                     </Text>)
                 }} 
             />
-            <TabStack.Screen name="CreateUser" component={CreateUserScreen} 
-                options={{
-                    title: "Create New User",
-                    tabBarIcon: (props) => <FontAwesome name="user-plus" size={24} color={props.focused? "#90EE90" : "#B0BEC5"}/>,
-                    tabBarLabel: ({ focused }) => (
-                    <Text style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}>
-                        Create New User
-                    </Text>)
-                }}
-            />   
+            {!currentUser && (
+                <TabStack.Screen name="CreateUser" component={CreateUserScreen} 
+                    options={{
+                        title: "Create New User",
+                        tabBarIcon: (props) => <FontAwesome name="user-plus" size={24} color={props.focused? "#90EE90" : "#B0BEC5"}/>,
+                        tabBarLabel: ({ focused }) => (
+                        <Text style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}>
+                            Create New User
+                        </Text>)
+                    }}
+                />   
+             )}
         </TabStack.Navigator>
     );
 };

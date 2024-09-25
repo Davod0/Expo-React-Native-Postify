@@ -5,7 +5,7 @@ import { PostPostObjectToSever } from "../../Actions/actions";
 import { Post, PostSchema } from "./PostSchema";
 
 export default function PostForm(){
-    // const { activeUser } = useContext()
+    // const { currentUser } = useUser()
 
     const {register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<Post>({
         resolver: zodResolver(PostSchema),
@@ -15,9 +15,8 @@ export default function PostForm(){
     const onSubmit = async (data: Post) => {
         console.log("Post Formulärdata:", data);
         const response = await PostPostObjectToSever(data);
-        if(isSubmitSuccessful){
-            // reset();
-        }
+        reset();
+
     };
 
      return(
