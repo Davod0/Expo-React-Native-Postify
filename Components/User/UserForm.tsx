@@ -21,7 +21,7 @@ export default function UserFrom(){
 
     return(
          <SafeAreaView style={{ padding: 20 }}>
-            <Text style={{ fontSize: 24, marginBottom: 20 }}>Create User</Text>
+            <Text style={{ fontSize: 24, marginBottom: 20 }}>Add New User</Text>
 
             <TextInput
                 style={{ borderColor: 'gray', borderWidth: 1, marginBottom: 10, padding: 10 }}
@@ -57,7 +57,7 @@ export default function UserFrom(){
             />
             {errors.password ? <Text style={{ color: 'red' }}>{errors.password.message}</Text>: null}
 
-          <Button title="Add New User" onPress={handleSubmit(onSubmit)} />
+          <Button title="Add" onPress={handleSubmit(onSubmit)} />
     </SafeAreaView>
     );
 }

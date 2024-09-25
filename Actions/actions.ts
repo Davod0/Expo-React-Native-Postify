@@ -1,4 +1,4 @@
-import { date } from "zod";
+import { Post } from "../Components/Post/PostSchema";
 import { User } from "../Components/User/UserSchema";
 import { IPost, IUser } from "../data";
 
@@ -26,9 +26,9 @@ export async function PostPostObjectToSever(data: Post) {
         id: id,
         title: data.title,
         content: data.content,
+        imageUrl: data.imageUrl,
         author: data.author,
         creationDate: new Date(),
-        imageUrl: data.imageUrl,
     }
     console.log("Post:", post)
     // await = axios.post("http://localhost:3000/post", user);

@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+import PostForm from "../Components/Post/PostForm";
 
 export default function CreatePostScreen(){
     return(
         <View>
-            <Text>Create Post</Text>
+            <PostForm />
         </View>
     );
 };
