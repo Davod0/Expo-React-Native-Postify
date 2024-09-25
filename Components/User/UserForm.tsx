@@ -7,7 +7,7 @@ import { User, UserSchema } from "./UserSchema";
 
 
 export default function UserFrom({navigation}: any){
-    
+
      const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<User>({
         resolver: zodResolver(UserSchema),
         mode: "onBlur",
@@ -26,7 +26,7 @@ export default function UserFrom({navigation}: any){
 
     return(
          <SafeAreaView style={{ padding: 20 }}>
-            <Text style={{ fontSize: 24, marginBottom: 20 }}>Add New User</Text>
+            <Text style={{ fontSize: 24, marginBottom: 20 }}>New User</Text>
 
             <TextInput
                 style={{ borderColor: 'gray', borderWidth: 1, marginBottom: 10, padding: 10 }}

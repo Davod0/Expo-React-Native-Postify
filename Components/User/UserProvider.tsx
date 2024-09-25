@@ -33,7 +33,7 @@ import { IPost, IUser, postsList, usersList } from "../../data";
     posts: IPost[];
     currentUser: IUser | null;
     createUser: () => void;
-    findUser: () => {user: IUser};
+    findUser: (userId: string) => {user: IUser};
   }
 
   export const UserContext = createContext<ContextValue>({} as ContextValue);
@@ -55,9 +55,13 @@ import { IPost, IUser, postsList, usersList } from "../../data";
       setCurrentUser(newUser);
     }
 
-    const findUser = (userId: string) => {
-      const user = users.find(user => user.id === userId);
-    }
+   const findUser = (userId: string) => {
+        const user = users.find((user) => user.id === userId);
+        if (!user) {
+          throw new Error(`User with ID ${userId} not found.`);
+        }
+        return { user };
+    };
 
     return (
     <UserContext.Provider value={{ users, posts, currentUser, createUser, findUser }}>
