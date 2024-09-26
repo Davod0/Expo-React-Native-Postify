@@ -6,7 +6,7 @@ import { useUser } from "./UserProvider";
 import { User, UserSchema } from "./UserSchema";
 
 
-export default function UserFrom({navigation}: any){
+export default function CreateUserForm({navigation}: any){
 
      const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<User>({
         resolver: zodResolver(UserSchema),

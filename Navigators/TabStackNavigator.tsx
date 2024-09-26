@@ -7,14 +7,14 @@ import React from "react";
 import { Text } from "react-native";
 import { useUser } from '../Components/User/UserProvider';
 import CreatePostScreen from '../Screens/CreatePostScreen';
-import CreateUserScreen from '../Screens/CreateUserScreen';
+import SignInSignUpScreen from '../Screens/SignInSignUpScreen';
 import FavoriteScreen from "../Screens/FavoritePostsScreen";
 import StartPageScreen from "../Screens/StartPageScreen";
 
 export type TabStackParamList = {
     FavoritePosts: undefined;
     StartPage: undefined;
-    CreateUser : undefined;
+    SignInSignUp : undefined;
     CreatePost: undefined;
 }
 
@@ -66,13 +66,13 @@ export default function TabStackNavigator(){
                 }} 
             />
             {!currentUser && (
-                <TabStack.Screen name="CreateUser" component={CreateUserScreen} 
+                <TabStack.Screen name="SignInSignUp" component={SignInSignUpScreen } 
                     options={{
-                        title: "Create New User",
+                        title: "Join Us",
                         tabBarIcon: (props) => <FontAwesome name="user-plus" size={24} color={props.focused? "#90EE90" : "#B0BEC5"}/>,
                         tabBarLabel: ({ focused }) => (
                         <Text style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}>
-                            Create New User
+                            Sign in/Sign up
                         </Text>)
                     }}
                 />   
