@@ -6,6 +6,7 @@ import { useUser } from "./UserProvider";
 import { User, UserSchema } from "./UserSchema";
 
 
+
 export default function CreateUserForm({navigation}: any){
 
      const { register, handleSubmit, setValue, reset, formState: { errors, isSubmitSuccessful } } = useForm<User>({
@@ -20,8 +21,7 @@ export default function CreateUserForm({navigation}: any){
         const response = await PostUserToServer(data);
         // reset();
         createUser(/*data*/);
-        //Efter ett en ny user har skapats ska vi navigera till annan sidan eller en text ska visas
-        navigation.navigate("StartPage"); 
+        navigation.navigate("UserAccount", {userId: "1", userName: "test"}); 
     };
 
     return(

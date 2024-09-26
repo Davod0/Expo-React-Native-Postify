@@ -24,7 +24,7 @@ export default function TabStackNavigator(){
 
     const {currentUser} = useUser();
 
-    const userId = 1;
+    const userId = "1";
     const userName = "Davod";
 
     return (
@@ -66,7 +66,7 @@ export default function TabStackNavigator(){
                 }} 
             />
             {!currentUser && (
-                <TabStack.Screen name="SignInSignUp" component={SignInSignUpScreen } 
+                <TabStack.Screen name="SignInSignUp" component={SignInSignUpScreen} 
                     options={{
                         title: "Join Us",
                         tabBarIcon: (props) => <FontAwesome name="user-plus" size={24} color={props.focused? "#90EE90" : "#B0BEC5"}/>,

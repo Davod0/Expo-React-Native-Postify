@@ -5,7 +5,7 @@ import TabStackNavigator, { TabStackParamList } from "./TabStackNavigator";
 
 export type RootStackParamList = {
   TabStackNavigator: NavigatorScreenParams<TabStackParamList>;
-  UserAccount : {userId: number, userName: string};
+  UserAccount : {userId: string, userName: string};
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
