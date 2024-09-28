@@ -1,11 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
-import { PostUserToServer } from "../../Actions/actions";
 import { useUser } from "./UserProvider";
 import { User, UserSchema } from "./UserSchema";
-
-
+import { IUser } from "../../data";
 
 export default function CreateUserForm({navigation}: any){
 
@@ -14,14 +12,14 @@ export default function CreateUserForm({navigation}: any){
         mode: "onBlur",
     });
 
-    const {createUser} = useUser();
+    const {createUser, findUser} = useUser();
 
     const onSubmit = async (data: User) => {
         console.log("Formulärdata:", data);
-        const response = await PostUserToServer(data);
-        // reset();
-        createUser(/*data*/);
-        navigation.navigate("UserAccount", {userId: "1", userName: "test"}); 
+        reset();
+        const userId = await createUser(data);
+        const foundUser = findUser(userId);
+        navigation.navigate("UserAccount", { userId: foundUser?.id, userName: foundUser?.firstName });
     };
 
     return(

@@ -1,13 +1,12 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
+import { PostUserToServer } from "../../Actions/actions";
 import { IPost, IUser, postsList, usersList } from "../../data";
+import { User } from "./UserSchema";
+import { string } from "zod";
 
-  // useState - alla posts
-  // useState - inloggad user | null
-  // createContext
 
-/* en UserProivder ska skapas som innehåller data om users, posts och inloggade user
-   denna provider ska ligga runt i allt innehåkk i app-tsx
 
+/* 
    en screen ska skapas för att user ska kunna logga in där
 
    och när man kommer till CreatePostScreen ska en if-sats används där för att kontrollera om user är inlogad eller inte om user är 
@@ -28,39 +27,47 @@ import { IPost, IUser, postsList, usersList } from "../../data";
 
  */
 
-  interface ContextValue{
+interface ContextValue{
     users: IUser[];
     posts: IPost[];
     currentUser: IUser | null;
-    createUser: () => void;
-    findUser: (userId: string) => {user: IUser};
-  }
+    createUser: (data: User) => Promise<string>;
+    findUser: (userId: string) => IUser | undefined;
+}
 
-  export const UserContext = createContext<ContextValue>({} as ContextValue);
+export const UserContext = createContext<ContextValue>({} as ContextValue);
+  
+function CreateUniqueId() {
+    return Date.now().toString(36) + Math.random().toString(36);
+}
 
-  export default function UserProivder(props: PropsWithChildren){
+export default function UserProivder(props: PropsWithChildren){
     const [users, setUsers] = useState<IUser[]>(usersList); 
     const [posts, setPosts] = useState<IPost[]>(postsList);
     const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
-    const createUser = (/*den ska ta emot en ny User*/) => {
-      const newUser: IUser = {
-        id: "1",
-        firstName: 'Anonym',
-        lastName: 'Anonym',
-        email: '<EMAIL>',
-        password: '<PASSWORD>',
-      };
-      setUsers([...users, newUser]);
-      setCurrentUser(newUser);
-    }
+    const createUser = async (data: User): Promise<string> => {
+        const id = CreateUniqueId();
+        const user: IUser = {
+          id: id,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          email: data.email,
+          password: data.password,
+        }
+        users.push(user);
+        setUsers([...users]);
+        setCurrentUser(user);
+        const response = await PostUserToServer(user);  
+        return id;            
+    };
 
    const findUser = (userId: string) => {
         const user = users.find((user) => user.id === userId);
         if (!user) {
           throw new Error(`User with ID ${userId} not found.`);
         }
-        return { user };
+        return user;
     };
 
     return (
@@ -70,7 +77,7 @@ import { IPost, IUser, postsList, usersList } from "../../data";
   );
 };
 
-  export const useUser = () => useContext(UserContext);
+export const useUser = () => useContext(UserContext);
 
 
 
