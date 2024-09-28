@@ -30,7 +30,7 @@ Extrena bibliotek som används i projektet:
 [x] React-hook-form
 [x] zod
 [x] hookform-resolvers-zod
-[] react-native-paper
+[x] react-native-paper
 []  React-native-image-picker
 
 
