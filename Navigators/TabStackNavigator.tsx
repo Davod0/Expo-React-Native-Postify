@@ -12,8 +12,8 @@ import FavoriteScreen from "../Screens/FavoritePostsScreen";
 import StartPageScreen from "../Screens/StartPageScreen";
 
 export type TabStackParamList = {
-    FavoritePosts: undefined;
     StartPage: undefined;
+    FavoritePosts: undefined;
     SignInSignUp : undefined;
     CreatePost: undefined;
 }
