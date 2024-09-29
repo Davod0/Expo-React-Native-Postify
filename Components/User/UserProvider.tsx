@@ -33,6 +33,7 @@ interface ContextValue{
     createUser: (data: User) => Promise<string>;
     findUserWithId: (userId: string) => IUser | undefined;
     findUserWithEmail: (email: string) => IUser | undefined;
+    setCurrentUser: (user: IUser | null) => void;
 }
 
 export const UserContext = createContext<ContextValue>({} as ContextValue);
@@ -69,14 +70,11 @@ export default function UserProivder(props: PropsWithChildren){
 
     const findUserWithEmail = (email: string) => {
       const user = users.find((user) => user.email === email);
-      if (user) {
-        setCurrentUser(user);
-      }
       return user;
     }
 
     return (
-    <UserContext.Provider value={{ users, posts, currentUser, createUser, findUserWithId, findUserWithEmail }}>
+    <UserContext.Provider value={{ users, posts, currentUser, createUser, findUserWithId, findUserWithEmail, setCurrentUser}}>
       {props.children}
     </UserContext.Provider>
   );
