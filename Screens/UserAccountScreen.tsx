@@ -55,33 +55,3 @@ export default function UserAccountScreen(props: Props){
     );
 }
 
-
-
-{/*
-
-    
-    const startPageRoute = () => <Text>Start</Text>;
-    const createPostRoute = () => <Text>Create post</Text>;
-    const favoritePostRoute = () => <Text>Favorite</Text>;
-    
-    const [index, setIndex] = useState(0);
-    const [routes] = useState([
-        { key: 'StartPage', title: 'Go to start page', focusedIcon: 'heart', unfocusedIcon: 'heart-outline'},
-        { key: 'CreatePost', title: 'Go to create new post', focusedIcon: 'album' },
-        { key: 'FavoritePosts', title: 'Go to favorite post', focusedIcon: 'history' },
-    ]);
-
-     const renderScene = BottomNavigation.SceneMap({
-        StartPage: startPageRoute,
-        CreatePost: createPostRoute,
-        FavoritePosts: favoritePostRoute,
-    });
-
-        
-    <BottomNavigation
-        navigationState={{ index, routes }}
-        onIndexChange={setIndex}
-        renderScene={renderScene}
-        />
-
-*/}

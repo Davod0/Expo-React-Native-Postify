@@ -2,7 +2,6 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
 import { IPost, IUser, postsList, usersList } from "../../data";
 import { User } from "./UserSchema";
-import { string } from "zod";
 
 
 
@@ -32,7 +31,8 @@ interface ContextValue{
     posts: IPost[];
     currentUser: IUser | null;
     createUser: (data: User) => Promise<string>;
-    findUser: (userId: string) => IUser | undefined;
+    findUserWithId: (userId: string) => IUser | undefined;
+    findUserWithEmail: (email: string) => IUser | undefined;
 }
 
 export const UserContext = createContext<ContextValue>({} as ContextValue);
@@ -62,25 +62,24 @@ export default function UserProivder(props: PropsWithChildren){
         return id;            
     };
 
-   const findUser = (userId: string) => {
-        const user = users.find((user) => user.id === userId);
-        if (!user) {
-          throw new Error(`User with ID ${userId} not found.`);
-        }
-        return user;
+   const findUserWithId = (userId: string) => {
+      const user = users.find((user) => user.id === userId);
+      return user;
     };
 
+    const findUserWithEmail = (email: string) => {
+      const user = users.find((user) => user.email === email);
+      return user;
+    }
+
     return (
-    <UserContext.Provider value={{ users, posts, currentUser, createUser, findUser }}>
+    <UserContext.Provider value={{ users, posts, currentUser, createUser, findUserWithId, findUserWithEmail }}>
       {props.children}
     </UserContext.Provider>
   );
 };
 
 export const useUser = () => useContext(UserContext);
-
-
-
 
 
 

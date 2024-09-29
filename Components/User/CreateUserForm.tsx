@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
 import { useUser } from "./UserProvider";
 import { User, UserSchema } from "./UserSchema";
-import { IUser } from "../../data";
 
 export default function CreateUserForm({navigation}: any){
 
@@ -12,14 +11,19 @@ export default function CreateUserForm({navigation}: any){
         mode: "onBlur",
     });
 
-    const {createUser, findUser} = useUser();
+    const {createUser, findUserWithId} = useUser();
 
     const onSubmit = async (data: User) => {
         console.log("Formulärdata:", data);
         reset();
         const userId = await createUser(data);
-        const foundUser = findUser(userId);
-        navigation.navigate("UserAccount", { userId: foundUser?.id, userName: foundUser?.firstName });
+        const foundUser = findUserWithId(userId);
+        if(foundUser){
+            navigation.navigate("UserAccount", { userId: foundUser?.id, userName: foundUser?.firstName });
+        }
+        else{
+            alert("Something went wrong");
+        }
     };
 
     return(
