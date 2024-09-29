@@ -24,6 +24,10 @@ I denna app ska användaren kunna:
 [x] StyleSheet
 [x] SafeAreaView
 [x] TextInput
+[x] Button
+[x] Modal
+[x] SafeAreaView
+
 
 Extrena bibliotek som används i projektet:
 [x] React-native-navigation
