@@ -69,6 +69,9 @@ export default function UserProivder(props: PropsWithChildren){
 
     const findUserWithEmail = (email: string) => {
       const user = users.find((user) => user.email === email);
+      if (user) {
+        setCurrentUser(user);
+      }
       return user;
     }
 
