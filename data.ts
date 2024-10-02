@@ -19,38 +19,45 @@ export interface IPost {
 export const usersList: IUser[] = [
     {
         id: '1',
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john.doe@example.com',
+        firstName: 'Emmy',
+        lastName: 'Larsson',
+        email: 'emmy.larsson@outlook.com',
         password: 'password123'
     },
     {
         id: '2',
         firstName: 'Jane',
         lastName: 'Smith',
-        email: 'jane.smith@example.com',
+        email: 'jane.smith@gmail.com',
         password: 'pass456'
     },
     {
         id: '3',
         firstName: 'Michael',
         lastName: 'Brown',
-        email: 'michael.brown@example.com',
+        email: 'michael.brown@gmail.com',
         password: 'pass789'
     },
     {
         id: '4',
-        firstName: 'Emily',
+        firstName: 'Sara',
         lastName: 'Johnson',
-        email: 'emily.johnson@example.com',
+        email: 'sara.johnson@gamil.com',
         password: 'password1011'
     },
     {
         id: '5',
         firstName: 'David',
         lastName: 'Williams',
-        email: 'david.williams@example.com',
+        email: 'david.williams@gmail.com',
         password: 'password2022'
+    },
+    {
+        id: '6',
+        firstName: 'Davod',
+        lastName: 'Nikoyi',
+        email: 'davod.nikoyii@gmail.com',
+        password: 'password3033'
     }
 ];
 
