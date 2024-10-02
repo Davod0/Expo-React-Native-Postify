@@ -10,11 +10,14 @@ export interface IPost {
     id: string;
     title: string;
     content: string;
-    imageUrl?: string;
     author: string;
     creationDate: Date;
     userId: string;
+    likes: number;
+    likersId: string[];
+    image?: string;
 }
+
 
 export const usersList: IUser[] = [
     {
@@ -61,49 +64,105 @@ export const usersList: IUser[] = [
     }
 ];
 
-
-export const postsList: IPost[] = [
+export const postList: IPost[] = [
     {
-        id: '101',
-        title: 'First Post',
-        content: 'This is the content of the first post.',
-        imageUrl: 'https://example.com/image1.jpg',
+        id: '1',
+        title: 'Post 1',
+        content: 'This is the content of post 1',
         author: 'John Doe',
-        creationDate: new Date('2024-01-01'),
-        userId: '1'
+        creationDate: new Date('2022-01-01T12:00:00.000Z'),
+        userId: '1',
+        likes: 3,
+        likersId: ['1', '2', '3']
     },
     {
-        id: '102',
-        title: 'Second Post',
-        content: 'This is the content of the second post.',
-        author: 'Jane Smith',
-        creationDate: new Date('2024-01-02'),
-        userId: '2'
+        id: '2',
+        title: 'Post 2',
+        content: 'This is the content of post 2',
+        author: 'Jane Doe',
+        creationDate: new Date('2022-01-02T12:00:00.000Z'),
+        userId: '2',
+        likes: 2,
+        likersId: ['2', '3']
     },
     {
-        id: '103',
-        title: 'Third Post',
-        content: 'This is the content of the third post.',
-        imageUrl: 'https://example.com/image2.jpg',
-        author: 'Michael Brown',
-        creationDate: new Date('2024-01-03'),
-        userId: '3'
+        id: '3',
+        title: 'Post 3',
+        content: 'This is the content of post 3',
+        author: 'John Doe',
+        creationDate: new Date('2022-01-03T12:00:00.000Z'),
+        userId: '1',
+        likes: 1,
+        likersId: ['1']
     },
     {
-        id: '104',
-        title: 'Fourth Post',
-        content: 'This is the content of the fourth post.',
-        imageUrl: 'https://example.com/image3.jpg',
-        author: 'Emily Johnson',
-        creationDate: new Date('2024-01-04'),
-        userId: '4'
+        id: '4',
+        title: 'Post 4',
+        content: 'This is the content of post 4',
+        author: 'Jane Doe',
+        creationDate: new Date('2022-01-04T12:00:00.000Z'),
+        userId: '2',
+        likes: 0,
+        likersId: []
     },
     {
-        id: '105',
-        title: 'Fifth Post',
-        content: 'This is the content of the fifth post.',
-        author: 'David Williams',
-        creationDate: new Date('2024-01-05'),
-        userId: '5'
+        id: '5',
+        title: 'Post 5',
+        content: 'This is the content of post 5',
+        author: 'John Doe',
+        creationDate: new Date('2022-01-05T12:00:00.000Z'),
+        userId: '1',
+        likes: 2,
+        likersId: ['1', '3']
+    },
+    {
+        id: '6',
+        title: 'Post 6',
+        content: 'This is the content of post 6',
+        author: 'Jane Doe',
+        creationDate: new Date('2022-01-06T12:00:00.000Z'),
+        userId: '2',
+        likes: 1,
+        likersId: ['2']
+    },
+    {
+        id: '7',
+        title: 'Post 7',
+        content: 'This is the content of post 7',
+        author: 'John Doe',
+        creationDate: new Date('2022-01-07T12:00:00.000Z'),
+        userId: '1',
+        likes: 0,
+        likersId: []
+    },
+    {
+        id: '8',
+        title: 'Post 8',
+        content: 'This is the content of post 8',
+        author: 'Jane Doe',
+        creationDate: new Date('2022-01-08T12:00:00.000Z'),
+        userId: '2',
+        likes: 1,
+        likersId: ['2']
+    },
+    {
+        id: '9',
+        title: 'Post 9',
+        content: 'This is the content of post 9',
+        author: 'John Doe',
+        creationDate: new Date('2022-01-09T12:00:00.000Z'),
+        userId: '1',
+        likes: 1,
+        likersId: ['1']
+    },
+    {
+        id: '10',
+        title: 'Post 10',
+        content: 'This is the content of post 10',
+        author: 'Jane Doe',
+        creationDate: new Date('2022-01-10T12:00:00.000Z'),
+        userId: '2',
+        likes: 2,
+        likersId: ['2', '3']
     }
 ];
