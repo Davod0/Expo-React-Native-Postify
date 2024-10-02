@@ -10,12 +10,14 @@ import CreatePostScreen from "../Screens/CreatePostScreen";
 import SignInSignUpScreen from "../Screens/SignInSignUpScreen";
 import FavoriteScreen from "../Screens/FavoritePostsScreen";
 import StartPageScreen from "../Screens/StartPageScreen";
+import SignOutScreen from "../Screens/SignOutScreen";
 
 export type TabStackParamList = {
   StartPage: undefined;
   FavoritePosts: undefined;
   SignInSignUp: undefined;
   CreatePost: undefined;
+  SignOut: undefined;
 };
 
 const TabStack = createBottomTabNavigator<TabStackParamList>();
@@ -107,7 +109,29 @@ export default function TabStackNavigator() {
           ),
         }}
       />
-      {!currentUser && (
+      {currentUser ? (
+        <TabStack.Screen
+          name="SignOut"
+          component={SignOutScreen}
+          options={{
+            title: "Sign-out",
+            tabBarIcon: (props) => (
+              <FontAwesome
+                name="sign-out"
+                size={24}
+                color={props.focused ? "#90EE90" : "#B0BEC5"}
+              />
+            ),
+            tabBarLabel: ({ focused }) => (
+              <Text
+                style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+              >
+                Sign-out
+              </Text>
+            ),
+          }}
+        />
+      ) : (
         <TabStack.Screen
           name="SignInSignUp"
           component={SignInSignUpScreen}

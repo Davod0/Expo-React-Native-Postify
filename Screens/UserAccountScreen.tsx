@@ -7,51 +7,50 @@ import { SegmentedButtons } from "react-native-paper";
 import { RootStackParamList } from "../Navigators/RootStackNavigator";
 import { TabStackParamList } from "../Navigators/TabStackNavigator";
 
-
-// type Props = NativeStackScreenProps<RootStackParamList, "UserAccount">;
 type Props = CompositeScreenProps<
-  NativeStackScreenProps<RootStackParamList, "UserAccount">,  BottomTabScreenProps<TabStackParamList>
->
+  NativeStackScreenProps<RootStackParamList, "UserAccount">,
+  BottomTabScreenProps<TabStackParamList>
+>;
 
-export default function UserAccountScreen(props: Props){
+export default function UserAccountScreen(props: Props) {
+  const userId = props.route.params.userId;
+  const userName = props.route.params.userName;
 
-    const userId = props.route.params.userId;
-    const userName = props.route.params.userName;
+  // const user = users.find(user => user.id === userId);
 
-    // const user = users.find(user => user.id === userId);
-      
-    const value: "StartPage" | "FavoritePosts" | "CreatePost" | "StartPage" | ""= ""; 
+  const value: "StartPage" | "FavoritePosts" | "CreatePost" | "StartPage" | "" =
+    "";
 
-    return(
-        <View>
-            <Text>User Acount Screen</Text>
-            <Text>User Name: {userName}</Text>
-            <Text>User ID: {userId}</Text>
+  return (
+    <View>
+      <Text>User Acount Screen</Text>
+      <Text>User Name: {userName}</Text>
+      <Text>User ID: {userId}</Text>
 
-            <SafeAreaView >
-                <SegmentedButtons
-                    value={value}
-                    onValueChange={(value) => props.navigation.navigate(value as "StartPage" | "FavoritePosts" | "CreatePost")}
-                    buttons={[
-                    {
-                        value: 'StartPage',
-                        label: 'Start Page',
-                    },
-                    {
-                        value: 'FavoritePosts',
-                        label: 'favorite Posts', 
-                    },
-                    { 
-                        value: 'CreatePost', 
-                        label: 'Create Post' 
-                    },
-                ]}
-                />
-            </SafeAreaView>
-        </View>
-
-
-            
-    );
+      <SafeAreaView>
+        <SegmentedButtons
+          value={value}
+          onValueChange={(value) =>
+            props.navigation.navigate(
+              value as "StartPage" | "FavoritePosts" | "CreatePost"
+            )
+          }
+          buttons={[
+            {
+              value: "StartPage",
+              label: "Start Page",
+            },
+            {
+              value: "FavoritePosts",
+              label: "favorite Posts",
+            },
+            {
+              value: "CreatePost",
+              label: "Create Post",
+            },
+          ]}
+        />
+      </SafeAreaView>
+    </View>
+  );
 }
-
