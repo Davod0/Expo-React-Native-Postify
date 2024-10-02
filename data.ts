@@ -73,7 +73,8 @@ export const postList: IPost[] = [
         creationDate: new Date('2022-01-01T12:00:00.000Z'),
         userId: '1',
         likes: 3,
-        likersId: ['1', '2', '3']
+        likersId: ['1', '2', '3'],
+        image: 'https://picsum.photos/700'
     },
     {
         id: '2',
@@ -83,7 +84,8 @@ export const postList: IPost[] = [
         creationDate: new Date('2022-01-02T12:00:00.000Z'),
         userId: '2',
         likes: 2,
-        likersId: ['2', '3']
+        likersId: ['2', '3'],
+        image: 'https://picsum.photos/700'
     },
     {
         id: '3',
@@ -93,7 +95,8 @@ export const postList: IPost[] = [
         creationDate: new Date('2022-01-03T12:00:00.000Z'),
         userId: '1',
         likes: 1,
-        likersId: ['1']
+        likersId: ['1'],
+        image: 'https://picsum.photos/700'
     },
     {
         id: '4',
@@ -103,7 +106,8 @@ export const postList: IPost[] = [
         creationDate: new Date('2022-01-04T12:00:00.000Z'),
         userId: '2',
         likes: 0,
-        likersId: []
+        likersId: [],
+        image: 'https://picsum.photos/700'
     },
     {
         id: '5',
@@ -113,7 +117,8 @@ export const postList: IPost[] = [
         creationDate: new Date('2022-01-05T12:00:00.000Z'),
         userId: '1',
         likes: 2,
-        likersId: ['1', '3']
+        likersId: ['1', '3'],
+        image: 'https://picsum.photos/700'
     },
     {
         id: '6',
