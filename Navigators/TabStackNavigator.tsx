@@ -55,12 +55,12 @@ export default function TabStackNavigator() {
             <MaterialIcons
               name="home"
               size={24}
-              color={props.focused ? "#90EE90" : "#B0BEC5"}
+              color={props.focused ? "#6200ea" : "#B0BEC5"}
             />
           ),
           tabBarLabel: ({ focused }) => (
             <Text
-              style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+              style={{ color: focused ? "#6200ea" : "#B0BEC5", fontSize: 12 }}
             >
               All Posts
             </Text>
@@ -76,12 +76,12 @@ export default function TabStackNavigator() {
             <Ionicons
               name="create"
               size={24}
-              color={props.focused ? "#90EE90" : "#B0BEC5"}
+              color={props.focused ? "#6200ea" : "#B0BEC5"}
             />
           ),
           tabBarLabel: ({ focused }) => (
             <Text
-              style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+              style={{ color: focused ? "#6200ea" : "#B0BEC5", fontSize: 12 }}
             >
               Create New Post
             </Text>
@@ -97,12 +97,12 @@ export default function TabStackNavigator() {
             <MaterialIcons
               name="favorite"
               size={24}
-              color={props.focused ? "#90EE90" : "#B0BEC5"}
+              color={props.focused ? "#6200ea" : "#B0BEC5"}
             />
           ),
           tabBarLabel: ({ focused }) => (
             <Text
-              style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+              style={{ color: focused ? "#6200ea" : "#B0BEC5", fontSize: 12 }}
             >
               Favorite Posts
             </Text>
@@ -119,12 +119,12 @@ export default function TabStackNavigator() {
               <FontAwesome
                 name="sign-out"
                 size={24}
-                color={props.focused ? "#90EE90" : "#B0BEC5"}
+                color={props.focused ? "#6200ea" : "#B0BEC5"}
               />
             ),
             tabBarLabel: ({ focused }) => (
               <Text
-                style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+                style={{ color: focused ? "#6200ea" : "#B0BEC5", fontSize: 12 }}
               >
                 Sign-out
               </Text>
@@ -141,12 +141,12 @@ export default function TabStackNavigator() {
               <FontAwesome
                 name="user-plus"
                 size={24}
-                color={props.focused ? "#90EE90" : "#B0BEC5"}
+                color={props.focused ? "#6200ea" : "#B0BEC5"}
               />
             ),
             tabBarLabel: ({ focused }) => (
               <Text
-                style={{ color: focused ? "#90EE90" : "#B0BEC5", fontSize: 12 }}
+                style={{ color: focused ? "#6200ea" : "#B0BEC5", fontSize: 12 }}
               >
                 Sign in/Sign up
               </Text>
