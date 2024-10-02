@@ -16,8 +16,6 @@ export default function UserAccountScreen(props: Props) {
   const userId = props.route.params.userId;
   const userName = props.route.params.userName;
 
-  // const user = users.find(user => user.id === userId);
-
   const value: "StartPage" | "FavoritePosts" | "CreatePost" | "StartPage" | "" =
     "";
 

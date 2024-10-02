@@ -5,7 +5,7 @@ import { TabStackParamList } from "../Navigators/TabStackNavigator";
 
 type Props = NativeStackScreenProps<TabStackParamList, "SignOut">;
 
-export default function SignOutScreen() {
+export default function SignOutScreen(props: Props) {
   const { setCurrentUser } = useUser();
 
   return (
