@@ -74,7 +74,7 @@ export const postList: IPost[] = [
         userId: '1',
         likes: 3,
         likersId: ['1', '2', '3'],
-        image: 'https://picsum.photos/700'
+        image: 'https://picsum.photos/701'
     },
     {
         id: '2',
@@ -85,7 +85,7 @@ export const postList: IPost[] = [
         userId: '2',
         likes: 2,
         likersId: ['2', '3'],
-        image: 'https://picsum.photos/700'
+        image: 'https://picsum.photos/702'
     },
     {
         id: '3',

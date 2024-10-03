@@ -78,23 +78,6 @@ export default function PostForm({ navigation }: any) {
       {errors.imageUrl ? (
         <Text style={{ color: "red" }}>{errors.imageUrl.message}</Text>
       ) : null}
-
-      <TextInput
-        style={{
-          borderColor: "gray",
-          borderWidth: 1,
-          marginBottom: 10,
-          padding: 10,
-        }}
-        placeholder="Author"
-        secureTextEntry
-        onChangeText={(text) => setValue("author", text)}
-        {...register("author")}
-      />
-      {errors.author ? (
-        <Text style={{ color: "red" }}>{errors.author.message}</Text>
-      ) : null}
-
       <Button title="Create" onPress={handleSubmit(onSubmit)} />
     </SafeAreaView>
   );
