@@ -7,7 +7,7 @@ import { useUser } from "../User/UserProvider";
 import { usePost } from "./PostProvider";
 import { Post, PostSchema } from "./PostSchema";
 
-export default function PostForm() {
+export default function PostForm({ navigation }: any) {
   const { currentUser } = useUser();
   const { createPost } = usePost();
   const [posts, setPosts] = useState<IPost[]>(postList);
@@ -27,6 +27,7 @@ export default function PostForm() {
     console.log("Post Formulärdata:", data);
     createPost(data);
     reset();
+    navigation.navigate("StartPage");
   };
 
   return (

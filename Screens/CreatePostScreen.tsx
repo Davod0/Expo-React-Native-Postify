@@ -13,7 +13,7 @@ export default function CreatePostScreen({ navigation }: Props) {
   return (
     <View>
       {currentUser ? (
-        <PostForm />
+        <PostForm navigation={navigation} />
       ) : (
         <View style={styles.authContainer}>
           <Text style={styles.authText}>Sign In To Start Posting</Text>
