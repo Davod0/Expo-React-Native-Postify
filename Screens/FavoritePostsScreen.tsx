@@ -1,6 +1,8 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { Button } from "react-native-paper";
+import PostCard from "../Components/Post/PostCrad";
+import { usePost } from "../Components/Post/PostProvider";
 import { useUser } from "../Components/User/UserProvider";
 import { TabStackParamList } from "../Navigators/TabStackNavigator";
 
@@ -8,11 +10,19 @@ type Props = NativeStackScreenProps<TabStackParamList, "FavoritePosts">;
 
 export default function FavoritePostsScreen(props: Props) {
   const { currentUser } = useUser();
+  const { favoritePosts } = usePost();
 
   return (
     <View>
       {currentUser ? (
-        <Text>Favorite Posts Screen, You are signed in </Text>
+        <ScrollView>
+          <Text style={{ paddingBottom: 10 }}>
+            Here you see all posts you liked
+          </Text>
+          {favoritePosts.map((post) => (
+            <PostCard post={post} key={post.id} />
+          ))}
+        </ScrollView>
       ) : (
         <View style={styles.authContainer}>
           <Text style={styles.authText}>

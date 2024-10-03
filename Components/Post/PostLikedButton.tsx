@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { IPost } from "../../data";
 import { useUser } from "../User/UserProvider";
+import { usePost } from "./PostProvider";
 
 interface Props {
   post: IPost;
@@ -11,12 +12,18 @@ interface Props {
 export default function PostLikedButton({ post }: Props) {
   const [likes, setLikes] = useState<number>(post.likes);
   const { currentUser } = useUser();
+  const { setLikedPostByUser } = usePost();
   const handleLike = () => {
-    const newLikes = likes + 1;
-    setLikes(newLikes);
-    post.likes = newLikes;
-    if (currentUser) {
+    if (currentUser && !post.likersId.includes(currentUser.id)) {
+      const newLikes = likes + 1;
+      setLikes(newLikes);
+      post.likes = newLikes;
       post.likersId.push(currentUser.id);
+
+      setLikedPostByUser(currentUser.id);
+
+      post.likersId.map((id) => console.log(id));
+      console.log("------------------------");
     }
   };
 

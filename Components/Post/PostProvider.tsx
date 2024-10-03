@@ -7,6 +7,8 @@ import { Post } from "./PostSchema";
 interface PostContextValue {
   posts: IPost[];
   createPost: (data: Post) => void;
+  favoritePosts: IPost[];
+  setLikedPostByUser(userId: string): void;
 }
 
 export const PostContext = createContext<PostContextValue>(
@@ -16,6 +18,7 @@ export const PostContext = createContext<PostContextValue>(
 export function PostProvider(props: PropsWithChildren) {
   const { currentUser } = useUser();
   const [posts, setPosts] = useState<IPost[]>(postList);
+  const [favoritePosts, setFavoritePosts] = useState<IPost[]>([]);
 
   const createPost = async (data: Post) => {
     const post: IPost = {
@@ -33,11 +36,21 @@ export function PostProvider(props: PropsWithChildren) {
     setPosts([...posts]);
     const response = await PostPostObjectToSever(data);
   };
+
+  const setLikedPostByUser = (userId: string) => {
+    const filteredPosts = posts.filter((post) =>
+      post.likersId.includes(userId)
+    );
+    setFavoritePosts(filteredPosts);
+  };
+
   return (
     <PostContext.Provider
       value={{
         posts,
         createPost,
+        favoritePosts,
+        setLikedPostByUser,
       }}
     >
       {props.children}

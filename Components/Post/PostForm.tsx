@@ -10,7 +10,6 @@ import { Post, PostSchema } from "./PostSchema";
 export default function PostForm({ navigation }: any) {
   const { currentUser } = useUser();
   const { createPost } = usePost();
-  const [posts, setPosts] = useState<IPost[]>(postList);
 
   const {
     register,
@@ -32,7 +31,7 @@ export default function PostForm({ navigation }: any) {
 
   return (
     <SafeAreaView style={{ padding: 20 }}>
-      <Text style={{ fontSize: 24, marginBottom: 20 }}>Create New Post</Text>
+      <Text style={{ fontSize: 24, marginBottom: 20 }}>Post</Text>
 
       <TextInput
         style={{
