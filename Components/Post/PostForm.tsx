@@ -24,6 +24,7 @@ export default function PostForm() {
 
   const onSubmit = async (data: Post) => {
     console.log("Post Formulärdata:", data);
+
     const response = await PostPostObjectToSever(data);
     reset();
   };

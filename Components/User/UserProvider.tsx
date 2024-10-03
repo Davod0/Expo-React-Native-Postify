@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
-import { IPost, IUser, usersList } from "../../data";
+import { IPost, IUser, postList, usersList } from "../../data";
 import { User } from "./UserSchema";
 
 interface ContextValue {
@@ -21,7 +21,7 @@ function CreateUniqueId() {
 
 export default function UserProivder(props: PropsWithChildren) {
   const [users, setUsers] = useState<IUser[]>(usersList);
-  const [posts, setPosts] = useState<IPost[]>(postsList);
+  const [posts, setPosts] = useState<IPost[]>(postList);
   const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
   const createUser = async (data: User): Promise<string> => {

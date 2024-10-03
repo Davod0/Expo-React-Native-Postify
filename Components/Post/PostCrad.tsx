@@ -1,10 +1,10 @@
-import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { Card } from "react-native-paper";
 import { updatePostOnServer } from "../../Actions/actions";
 import { IPost } from "../../data";
 import { useUser } from "../User/UserProvider";
+import PostLikedButton from "./PostLikedButton";
 
 interface Props {
   post: IPost;
@@ -36,31 +36,7 @@ export default function PostCard({ post }: Props) {
         <Text style={styles.creationDate}>
           {new Date(post.creationDate).toLocaleString()}
         </Text>
-        {post.likes > 0 ? (
-          <View style={styles.likeContainer}>
-            <Text style={styles.likeText}>{post.likes}</Text>
-            <Pressable onPress={handleLike}>
-              <AntDesign
-                name="heart"
-                size={24}
-                color="red"
-                style={styles.heartIcon}
-              />
-            </Pressable>
-          </View>
-        ) : (
-          <View style={styles.likeContainer}>
-            <Text style={styles.likeText}>{post.likes}</Text>
-            <Pressable onPress={handleLike}>
-              <AntDesign
-                name="hearto"
-                size={24}
-                color="black"
-                style={styles.heartIcon}
-              />
-            </Pressable>
-          </View>
-        )}
+        <PostLikedButton post={post} />
       </Card.Content>
     </Card>
   );
@@ -99,17 +75,5 @@ const styles = StyleSheet.create({
   image: {
     marginVertical: 10,
     borderRadius: 10,
-  },
-  likeContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  likeText: {
-    fontSize: 16,
-    color: "#333",
-    marginRight: 5,
-  },
-  heartIcon: {
-    marginLeft: 5,
   },
 });
