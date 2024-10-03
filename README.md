@@ -1,14 +1,15 @@
 Detta är ett projekt i Expo och Reat-native.
-En enklare version av en mobil application som används som en social media,
-I denna app ska användaren kunna:
+En enklare version av en mobil applikation som används som en social media,
 
-1. skapa ett konto med en bild
-2. posta olika inlägg med eller utan bild
+I denna applikation det ska gå att:
+
+1. skapa ett konto
+2. posta olika inlägg
 3. skriva innehåll för varje inlägg
-4. gilla/ogilla andras inlägg
-5. kommentera andras inlägg
-6. kunna logga in/logga ut med ett användarnamn och lösenord med hjälp av authentication
-7. Kunna ha behörighet till olika delar av sitt konto när en är inloggat med hjälp av authorization
+4. gilla andras inlägg
+5. Användaren ska kunna se alla inlägg den har gillast
+6. kunna logga in/logga ut med sin email och lösenord
+7. användaren ska kunna se sin profil coh alla inlägg den har skapat
 
 - All expo (SDK) komponenter som används i projektet:
   "minst fyra komponenter"
@@ -18,7 +19,6 @@ I denna app ska användaren kunna:
   []
 
 - Alla React-native komponenter som används i projektet:
-  "minst fyra komponenter"
   [x] View
   [x] Text
   [x] StyleSheet
@@ -26,7 +26,7 @@ I denna app ska användaren kunna:
   [x] TextInput
   [x] Button
   [x] Modal
-  [x] SafeAreaView
+  [x] ScrollView
 
 Extrena bibliotek som används i projektet:
 [x] React-native-navigation
@@ -37,5 +37,5 @@ Extrena bibliotek som används i projektet:
 [] React-native-image-picker
 
 API:er som används i projektet:
-[x] Pexels API
+[] Pexels API
 [] Min egen Node.js server API (backend)
