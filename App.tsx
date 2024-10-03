@@ -1,21 +1,23 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
-import UserProivder from './Components/User/UserProvider';
-import RootStackNavigator from './Navigators/RootStackNavigator';
-
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet } from "react-native";
+import { PostProvider } from "./Components/Post/PostProvider";
+import UserProivder from "./Components/User/UserProvider";
+import RootStackNavigator from "./Navigators/RootStackNavigator";
 
 export default function App() {
   return (
     <UserProivder>
-      <NavigationContainer>
+      <PostProvider>
+        <NavigationContainer>
           <StatusBar style="auto" />
-          <RootStackNavigator/>
-      </NavigationContainer>
-     </UserProivder>
+          <RootStackNavigator />
+        </NavigationContainer>
+      </PostProvider>
+    </UserProivder>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {},
 });

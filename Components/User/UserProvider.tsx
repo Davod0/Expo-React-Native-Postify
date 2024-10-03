@@ -5,7 +5,6 @@ import { User } from "./UserSchema";
 
 interface ContextValue {
   users: IUser[];
-  posts: IPost[];
   currentUser: IUser | null;
   createUser: (data: User) => Promise<string>;
   findUserWithId: (userId: string) => IUser | undefined;
@@ -15,7 +14,7 @@ interface ContextValue {
 
 export const UserContext = createContext<ContextValue>({} as ContextValue);
 
-function CreateUniqueId() {
+export function CreateUniqueId() {
   return Date.now().toString(36) + Math.random().toString(36);
 }
 
@@ -54,7 +53,6 @@ export default function UserProivder(props: PropsWithChildren) {
     <UserContext.Provider
       value={{
         users,
-        posts,
         currentUser,
         createUser,
         findUserWithId,

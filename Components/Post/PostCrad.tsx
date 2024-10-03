@@ -10,19 +10,6 @@ interface Props {
   post: IPost;
 }
 export default function PostCard({ post }: Props) {
-  const [likes, setLikes] = useState<number>(post.likes);
-  const { currentUser } = useUser();
-  const handleLike = async () => {
-    const newLikes = likes + 1;
-    setLikes(newLikes);
-    post.likes = newLikes;
-    if (currentUser) {
-      post.likersId.push(currentUser.id);
-      await updatePostOnServer(post);
-    }
-    await updatePostOnServer(post);
-  };
-
   return (
     <Card style={styles.card}>
       <Card.Content>

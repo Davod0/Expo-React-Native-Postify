@@ -2,14 +2,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
-import { PostPostObjectToSever } from "../../Actions/actions";
 import { IPost, postList } from "../../data";
 import { useUser } from "../User/UserProvider";
+import { usePost } from "./PostProvider";
 import { Post, PostSchema } from "./PostSchema";
 
 export default function PostForm() {
   const { currentUser } = useUser();
-  const [post, setPost] = useState<IPost[]>(postList);
+  const { createPost } = usePost();
+  const [posts, setPosts] = useState<IPost[]>(postList);
 
   const {
     register,
@@ -22,10 +23,9 @@ export default function PostForm() {
     mode: "onBlur",
   });
 
-  const onSubmit = async (data: Post) => {
+  const onSubmit = (data: Post) => {
     console.log("Post Formulärdata:", data);
-
-    const response = await PostPostObjectToSever(data);
+    createPost(data);
     reset();
   };
 

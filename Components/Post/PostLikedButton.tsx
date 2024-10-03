@@ -17,8 +17,6 @@ export default function PostLikedButton({ post }: Props) {
     post.likes = newLikes;
     if (currentUser) {
       post.likersId.push(currentUser.id);
-      //   post.likersId.map((id) => console.log(`Liker ID: ${id}`));
-      //   post.likersId.map((id) => console.log(`-------------------`));
     }
   };
 
