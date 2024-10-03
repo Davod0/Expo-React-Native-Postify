@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
-import { IPost, IUser, postsList, usersList } from "../../data";
+import { IPost, IUser, usersList } from "../../data";
 import { User } from "./UserSchema";
 
 interface ContextValue {

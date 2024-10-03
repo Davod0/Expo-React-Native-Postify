@@ -1,7 +1,8 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Button, Card } from "react-native-paper";
+import { Card } from "react-native-paper";
+import { updatePostOnServer } from "../../Actions/actions";
 import { IPost } from "../../data";
 import { useUser } from "../User/UserProvider";
 
@@ -11,13 +12,15 @@ interface Props {
 export default function PostCard({ post }: Props) {
   const [likes, setLikes] = useState<number>(post.likes);
   const { currentUser } = useUser();
-  const handleLike = () => {
+  const handleLike = async () => {
     const newLikes = likes + 1;
     setLikes(newLikes);
     post.likes = newLikes;
     if (currentUser) {
-      post.likersId.push(currentUser?.id);
+      post.likersId.push(currentUser.id);
+      await updatePostOnServer(post);
     }
+    await updatePostOnServer(post);
   };
 
   return (

@@ -1,9 +1,8 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
 import { useUser } from "../Components/User/UserProvider";
 import { TabStackParamList } from "../Navigators/TabStackNavigator";
-import { StyleSheet } from "react-native";
-import { Button } from "react-native-paper";
 
 type Props = NativeStackScreenProps<TabStackParamList, "FavoritePosts">;
 
@@ -16,7 +15,9 @@ export default function FavoritePostsScreen(props: Props) {
         <Text>Favorite Posts Screen, You are signed in </Text>
       ) : (
         <View style={styles.authContainer}>
-          <Text style={styles.authText}>Sign In To See Your Liked Posts</Text>
+          <Text style={styles.authText}>
+            Sign in to like posts and view your liked posts here
+          </Text>
           <Button
             mode="contained"
             onPress={() => props.navigation.navigate("SignInSignUp")}

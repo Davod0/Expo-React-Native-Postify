@@ -28,3 +28,7 @@ export async function PostPostObjectToSever(data: Post) {
     // console.log("Post:", post)
     // await = axios.post("http://localhost:3000/post", user);
 }
+
+export async function updatePostOnServer(data: IPost) {
+    // const posts = await axios.get("http://localhost:3000/post");
+}
