@@ -1,12 +1,25 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { StyleSheet, Text, View } from "react-native";
-import { Card } from "react-native-paper";
+import { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, Card } from "react-native-paper";
 import { IPost } from "../../data";
+import { useUser } from "../User/UserProvider";
 
 interface Props {
   post: IPost;
 }
 export default function PostCard({ post }: Props) {
+  const [likes, setLikes] = useState<number>(post.likes);
+  const { currentUser } = useUser();
+  const handleLike = () => {
+    const newLikes = likes + 1;
+    setLikes(newLikes);
+    post.likes = newLikes;
+    if (currentUser) {
+      post.likersId.push(currentUser?.id);
+    }
+  };
+
   return (
     <Card style={styles.card}>
       <Card.Content>
@@ -23,22 +36,26 @@ export default function PostCard({ post }: Props) {
         {post.likes > 0 ? (
           <View style={styles.likeContainer}>
             <Text style={styles.likeText}>{post.likes}</Text>
-            <AntDesign
-              name="heart"
-              size={24}
-              color="red"
-              style={styles.heartIcon}
-            />
+            <Pressable onPress={handleLike}>
+              <AntDesign
+                name="heart"
+                size={24}
+                color="red"
+                style={styles.heartIcon}
+              />
+            </Pressable>
           </View>
         ) : (
           <View style={styles.likeContainer}>
             <Text style={styles.likeText}>{post.likes}</Text>
-            <AntDesign
-              name="hearto"
-              size={24}
-              color="black"
-              style={styles.heartIcon}
-            />
+            <Pressable onPress={handleLike}>
+              <AntDesign
+                name="hearto"
+                size={24}
+                color="black"
+                style={styles.heartIcon}
+              />
+            </Pressable>
           </View>
         )}
       </Card.Content>

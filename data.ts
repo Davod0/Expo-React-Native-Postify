@@ -8,13 +8,13 @@ export interface IUser {
 
 export interface IPost {
     id: string;
+    userId: string;
+    likes: number;
+    likersId: string[];
     title: string;
     content: string;
     author: string;
     creationDate: Date;
-    userId: string;
-    likes: number;
-    likersId: string[];
     image?: string;
 }
 
