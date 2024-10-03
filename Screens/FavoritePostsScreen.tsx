@@ -16,9 +16,7 @@ export default function FavoritePostsScreen(props: Props) {
     <View>
       {currentUser ? (
         <ScrollView>
-          <Text style={{ paddingBottom: 10 }}>
-            Here you see all posts you liked
-          </Text>
+          <Text style={styles.title}>All Posts You Have Liked</Text>
           {favoritePosts.map((post) => (
             <PostCard post={post} key={post.id} />
           ))}
@@ -48,6 +46,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f5f5f5",
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    paddingBottom: 20,
+    paddingTop: 20,
+    color: "#000",
   },
   authContainer: {
     alignItems: "center",
