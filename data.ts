@@ -68,7 +68,7 @@ export const postList: IPost[] = [
     {
         id: '1',
         title: 'The Jungle',
-        content: 'This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1',
+        content: 'This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1 ,This is the content of post 1, This is the content of post 1, This is the content of post 1',
         author: 'Davod Nikoyi',
         creationDate: new Date('2022-01-01T12:00:00.000Z'),
         userId: '1',
@@ -79,7 +79,7 @@ export const postList: IPost[] = [
     {
         id: '2',
         title: 'Car Wash',
-        content: 'This is the content of post 2, This is the content of post 1, This is the content of post 1',
+        content: 'This is the content of post 2, This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1',
         author: 'Davod Nikoyi',
         creationDate: new Date('2022-01-02T12:00:00.000Z'),
         userId: '2',
@@ -90,7 +90,7 @@ export const postList: IPost[] = [
     {
         id: '3',
         title: 'War',
-        content: 'This is the content of post 3, This is the content of post 1, This is the content of post 1',
+        content: 'This is the content of post 3, This is the content of post 1, This is the content of post 1, This is the content of post 1',
         author: 'John Doe',
         creationDate: new Date('2022-01-03T12:00:00.000Z'),
         userId: '1',

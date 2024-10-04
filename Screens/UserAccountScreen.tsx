@@ -55,7 +55,7 @@ export default function UserAccountScreen(props: Props) {
       {currentUser ? (
         <Text style={styles.userText}>All Posts Created By {userName}</Text>
       ) : (
-        <Text style={styles.userText}>Sign In To See All Posts Here</Text>
+        <Text style={styles.userText}>Sign In To See All Your Posts Here</Text>
       )}
 
       {currentUserCreatedPost.map((post) => (
