@@ -1,5 +1,8 @@
+Postify
+
 Detta är ett projekt i Expo och Reat-native.
 En enklare version av en mobil applikation som används som en social media,
+projektet körs genom att köra: npm start i terminalen.
 
 I denna applikation det ska gå att:
 

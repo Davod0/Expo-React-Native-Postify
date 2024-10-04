@@ -16,7 +16,7 @@ export default function FavoritePostsScreen(props: Props) {
     <View>
       {currentUser ? (
         <ScrollView>
-          <Text style={styles.title}>All Posts You Have Liked</Text>
+          <Text style={styles.title}>All Posts Liked By You</Text>
           {favoritePosts.map((post) => (
             <PostCard post={post} key={post.id} />
           ))}

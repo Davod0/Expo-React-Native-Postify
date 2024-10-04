@@ -59,17 +59,17 @@ export const usersList: IUser[] = [
         id: '6',
         firstName: 'Davod',
         lastName: 'Nikoyi',
-        email: 'davod.nikoyii@gmail.com',
-        password: 'password3033'
+        email: 'davod@gmail.com',
+        password: '123456'
     }
 ];
 
 export const postList: IPost[] = [
     {
         id: '1',
-        title: 'Post 1',
-        content: 'This is the content of post 1',
-        author: 'John Doe',
+        title: 'The Jungle',
+        content: 'This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1, This is the content of post 1',
+        author: 'Davod Nikoyi',
         creationDate: new Date('2022-01-01T12:00:00.000Z'),
         userId: '1',
         likes: 3,
@@ -78,9 +78,9 @@ export const postList: IPost[] = [
     },
     {
         id: '2',
-        title: 'Post 2',
-        content: 'This is the content of post 2',
-        author: 'Jane Doe',
+        title: 'Car Wash',
+        content: 'This is the content of post 2, This is the content of post 1, This is the content of post 1',
+        author: 'Davod Nikoyi',
         creationDate: new Date('2022-01-02T12:00:00.000Z'),
         userId: '2',
         likes: 2,
@@ -89,8 +89,8 @@ export const postList: IPost[] = [
     },
     {
         id: '3',
-        title: 'Post 3',
-        content: 'This is the content of post 3',
+        title: 'War',
+        content: 'This is the content of post 3, This is the content of post 1, This is the content of post 1',
         author: 'John Doe',
         creationDate: new Date('2022-01-03T12:00:00.000Z'),
         userId: '1',
@@ -100,8 +100,8 @@ export const postList: IPost[] = [
     },
     {
         id: '4',
-        title: 'Post 4',
-        content: 'This is the content of post 4',
+        title: 'Fighter',
+        content: 'This is the content of post 4, This is the content of post 1, This is the content of post 1',
         author: 'Jane Doe',
         creationDate: new Date('2022-01-04T12:00:00.000Z'),
         userId: '2',
@@ -111,8 +111,8 @@ export const postList: IPost[] = [
     },
     {
         id: '5',
-        title: 'Post 5',
-        content: 'This is the content of post 5',
+        title: 'Nature',
+        content: 'This is the content of post 5, This is the content of post 1',
         author: 'John Doe',
         creationDate: new Date('2022-01-05T12:00:00.000Z'),
         userId: '1',
@@ -122,8 +122,8 @@ export const postList: IPost[] = [
     },
     {
         id: '6',
-        title: 'Post 6',
-        content: 'This is the content of post 6',
+        title: 'Street',
+        content: 'This is the content of post 6, This is the content of post 1',
         author: 'Jane Doe',
         creationDate: new Date('2022-01-06T12:00:00.000Z'),
         userId: '2',
@@ -132,8 +132,8 @@ export const postList: IPost[] = [
     },
     {
         id: '7',
-        title: 'Post 7',
-        content: 'This is the content of post 7',
+        title: 'Soft',
+        content: 'This is the content of post 7, This is the content of post 1, This is the content of post 1',
         author: 'John Doe',
         creationDate: new Date('2022-01-07T12:00:00.000Z'),
         userId: '1',
@@ -142,8 +142,8 @@ export const postList: IPost[] = [
     },
     {
         id: '8',
-        title: 'Post 8',
-        content: 'This is the content of post 8',
+        title: 'Friends',
+        content: 'This is the content of post 8, This is the content of post 1, This is the content of post 1',
         author: 'Jane Doe',
         creationDate: new Date('2022-01-08T12:00:00.000Z'),
         userId: '2',
@@ -151,9 +151,9 @@ export const postList: IPost[] = [
         likersId: ['2']
     },
     {
-        id: '9',
+        id: 'Love',
         title: 'Post 9',
-        content: 'This is the content of post 9',
+        content: 'This is the content of post 9, This is the content of post 1, This is the content of post 1',
         author: 'John Doe',
         creationDate: new Date('2022-01-09T12:00:00.000Z'),
         userId: '1',
@@ -161,9 +161,9 @@ export const postList: IPost[] = [
         likersId: ['1']
     },
     {
-        id: '10',
+        id: 'Sky',
         title: 'Post 10',
-        content: 'This is the content of post 10',
+        content: 'This is the content of post 10, This is the content of post 1, This is the content of post 1',
         author: 'Jane Doe',
         creationDate: new Date('2022-01-10T12:00:00.000Z'),
         userId: '2',
