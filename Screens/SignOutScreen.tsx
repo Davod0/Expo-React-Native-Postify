@@ -7,7 +7,7 @@ import { Button } from "react-native-paper";
 type Props = NativeStackScreenProps<TabStackParamList, "SignOut">;
 
 export default function SignOutScreen(props: Props) {
-  const { setCurrentUser } = useUser();
+  const { getCurrentUserFromStorageRemoveIt } = useUser();
 
   return (
     <View style={styles.authContainer}>
@@ -15,7 +15,7 @@ export default function SignOutScreen(props: Props) {
 
       <Button
         mode="contained"
-        onPress={() => setCurrentUser(null)}
+        onPress={() => getCurrentUserFromStorageRemoveIt()}
         style={styles.button}
         labelStyle={styles.buttonLabel}
       >

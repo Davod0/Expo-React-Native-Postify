@@ -35,7 +35,7 @@ export default function SignInForm({ navigation }: any) {
     setModalVisible(false);
   };
 
-  const { findUserWithEmail, setCurrentUser } = useUser();
+  const { findUserWithEmail, setCurrentUserAndStoreItToStorage } = useUser();
 
   const onSubmit = async (data: SignIn) => {
     const user = await findUserWithEmail(data.email);
@@ -47,7 +47,7 @@ export default function SignInForm({ navigation }: any) {
       showModal(`The password: (${data.password}) is not correct.`);
       return;
     }
-    setCurrentUser(user);
+    setCurrentUserAndStoreItToStorage(user);
     navigation.navigate("UserAccount", {
       userId: user.id,
       userName: user.firstName,

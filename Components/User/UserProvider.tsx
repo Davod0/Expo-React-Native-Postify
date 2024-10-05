@@ -2,6 +2,8 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
 import { IPost, IUser, postList, usersList } from "../../data";
 import { User } from "./UserSchema";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { set } from "zod";
 
 interface ContextValue {
   users: IUser[];
@@ -9,7 +11,10 @@ interface ContextValue {
   createUser: (data: User) => Promise<string>;
   findUserWithId: (userId: string) => IUser | undefined;
   findUserWithEmail: (email: string) => IUser | undefined;
-  setCurrentUser: (user: IUser | null) => void;
+  // setCurrentUser: (user: IUser | null) => void;
+  setCurrentUserAndStoreItToStorage: (user: IUser) => void;
+  getCurrentUserFromStorageRemoveIt: () => void;
+  checkIfUserIsLoggedIn: () => boolean;
 }
 
 export const UserContext = createContext<ContextValue>({} as ContextValue);
@@ -20,8 +25,34 @@ export function CreateUniqueId() {
 
 export default function UserProivder(props: PropsWithChildren) {
   const [users, setUsers] = useState<IUser[]>(usersList);
-  const [posts, setPosts] = useState<IPost[]>(postList);
   const [currentUser, setCurrentUser] = useState<IUser | null>(null);
+
+  const setCurrentUserAndStoreItToStorage = async (user: IUser) => {
+    try {
+      const jsonValue = JSON.stringify(user);
+      await AsyncStorage.setItem("activeUser", jsonValue);
+      setCurrentUser(user);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const getCurrentUserFromStorageRemoveIt = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem("activeUser");
+      if (jsonValue != null) {
+        await AsyncStorage.removeItem("activeUser");
+        setCurrentUser(null);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  const checkIfUserIsLoggedIn = async () => {
+    const jsonValue = await AsyncStorage.getItem("activeUser");
+    return jsonValue != null ? JSON.parse(jsonValue) : null;
+  };
 
   const createUser = async (data: User): Promise<string> => {
     const id = CreateUniqueId();
@@ -34,7 +65,8 @@ export default function UserProivder(props: PropsWithChildren) {
     };
     users.push(user);
     setUsers([...users]);
-    setCurrentUser(user);
+    // setCurrentUser(user);
+    setCurrentUserAndStoreItToStorage(user);
     const response = await PostUserToServer(user);
     return id;
   };
@@ -57,7 +89,9 @@ export default function UserProivder(props: PropsWithChildren) {
         createUser,
         findUserWithId,
         findUserWithEmail,
-        setCurrentUser,
+        // setCurrentUser,
+        setCurrentUserAndStoreItToStorage,
+        getCurrentUserFromStorageRemoveIt,
       }}
     >
       {props.children}
