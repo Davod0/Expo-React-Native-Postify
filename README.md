@@ -16,7 +16,8 @@ I denna applikation det ska gå att:
 
 - All expo (SDK) komponenter som används i projektet:
   "minst fyra komponenter"
-  [] API för att ha tillgång till kameran vid skapande av kontot (konto bild)
+  [x] AsyncStorage: används för att lagra användaren i
+  enheten som appen används i så att användaren behöver inte logga in varje gång appen startas.
   []
   []
   []

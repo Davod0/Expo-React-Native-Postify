@@ -1,9 +1,9 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
-import { IPost, IUser, postList, usersList } from "../../data";
+import { IUser, usersList } from "../../data";
 import { User } from "./UserSchema";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { set } from "zod";
+import { boolean } from "zod";
 
 interface ContextValue {
   users: IUser[];
@@ -11,10 +11,10 @@ interface ContextValue {
   createUser: (data: User) => Promise<string>;
   findUserWithId: (userId: string) => IUser | undefined;
   findUserWithEmail: (email: string) => IUser | undefined;
-  // setCurrentUser: (user: IUser | null) => void;
   setCurrentUserAndStoreItToStorage: (user: IUser) => void;
   getCurrentUserFromStorageRemoveIt: () => void;
-  checkIfUserIsLoggedIn: () => boolean;
+  checkIfUserIsLoggedIn: () => Promise<boolean>;
+  setCurrentUser: (user: IUser | null) => void;
 }
 
 export const UserContext = createContext<ContextValue>({} as ContextValue);
@@ -49,9 +49,13 @@ export default function UserProivder(props: PropsWithChildren) {
     }
   };
 
-  const checkIfUserIsLoggedIn = async () => {
+  const checkIfUserIsLoggedIn = async (): Promise<boolean> => {
     const jsonValue = await AsyncStorage.getItem("activeUser");
-    return jsonValue != null ? JSON.parse(jsonValue) : null;
+    if (jsonValue != null) {
+      setCurrentUser(JSON.parse(jsonValue));
+      return true;
+    }
+    return false;
   };
 
   const createUser = async (data: User): Promise<string> => {
@@ -65,7 +69,6 @@ export default function UserProivder(props: PropsWithChildren) {
     };
     users.push(user);
     setUsers([...users]);
-    // setCurrentUser(user);
     setCurrentUserAndStoreItToStorage(user);
     const response = await PostUserToServer(user);
     return id;
@@ -89,9 +92,10 @@ export default function UserProivder(props: PropsWithChildren) {
         createUser,
         findUserWithId,
         findUserWithEmail,
-        // setCurrentUser,
         setCurrentUserAndStoreItToStorage,
         getCurrentUserFromStorageRemoveIt,
+        checkIfUserIsLoggedIn,
+        setCurrentUser,
       }}
     >
       {props.children}
