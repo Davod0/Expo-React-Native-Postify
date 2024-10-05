@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { ScrollView } from "react-native";
+import BatteryLevel from "../Components/BatteryLevel";
 import PostCard from "../Components/Post/PostCrad";
 import { usePost } from "../Components/Post/PostProvider";
 import { useUser } from "../Components/User/UserProvider";
@@ -19,6 +20,7 @@ export default function StartPageScreen() {
         console.log(error);
       }
     };
+
     checkUser();
   }, []);
 
@@ -27,6 +29,7 @@ export default function StartPageScreen() {
       {posts.map((post) => (
         <PostCard post={post} key={post.id} />
       ))}
+      <BatteryLevel />
     </ScrollView>
   );
 }

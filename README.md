@@ -18,7 +18,7 @@ I denna applikation det ska gå att:
   "minst fyra komponenter"
   [x] AsyncStorage: används för att lagra användaren i
   enheten som appen används i så att användaren behöver inte logga in varje gång appen startas.
-  []
+  [x] Battery : används för att hämta enhetens batteri nivå och visa en varning meddelande om batterinivån är låg medans appen körs.
   []
   []
 
