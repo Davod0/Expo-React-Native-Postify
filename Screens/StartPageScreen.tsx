@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { ScrollView } from "react-native";
-import BatteryLevel from "../Components/BatteryLevel";
+import BatteryLevel from "../Components/BatteryLevel ";
 import PostCard from "../Components/Post/PostCrad";
 import { usePost } from "../Components/Post/PostProvider";
 import { useUser } from "../Components/User/UserProvider";

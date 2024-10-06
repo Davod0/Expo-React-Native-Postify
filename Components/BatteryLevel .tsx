@@ -6,15 +6,17 @@ export default function BatteryLevel() {
   const batteryLevel = useBatteryLevel();
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-  //måste fixas
+
   useEffect(() => {
     const checkLevel = () => {
       if (batteryLevel * 100 < 20 && !modalVisible) {
-        showModal(`battery level is low: ${batteryLevel}`);
+        showModal(`Battery level is low: ${Math.round(batteryLevel * 100)}%`);
+      } else if (batteryLevel * 100 >= 20 && modalVisible) {
+        closeModal();
       }
     };
     checkLevel();
-  }, []);
+  }, [batteryLevel, modalVisible]);
 
   const showModal = (message: string) => {
     setModalMessage(message);
