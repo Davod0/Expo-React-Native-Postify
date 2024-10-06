@@ -1,8 +1,16 @@
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
 import { CompositeScreenProps } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import React from "react";
-import { SafeAreaView, ScrollView, Text, StyleSheet } from "react-native";
+import * as WebBrowser from "expo-web-browser";
+import React, { useState } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { SegmentedButtons } from "react-native-paper";
 import PostCard from "../Components/Post/PostCrad";
 import { usePost } from "../Components/Post/PostProvider";
@@ -16,14 +24,24 @@ type Props = CompositeScreenProps<
 >;
 
 export default function UserAccountScreen(props: Props) {
+  const [result, setResult] = useState<WebBrowser.WebBrowserResult | null>(
+    null
+  );
+  const { posts } = usePost();
+  const { currentUser } = useUser();
   const userId = props.route.params.userId;
   const userName = props.route.params.userName;
   const value: "StartPage" | "FavoritePosts" | "CreatePost" | "StartPage" | "" =
     "";
 
-  const { posts } = usePost();
-  const { currentUser } = useUser();
   const currentUserCreatedPost = posts.filter((post) => post.userId === userId);
+
+  const openPexelsWebsite = async () => {
+    let result = await WebBrowser.openBrowserAsync(
+      "https://www.pexels.com/search/love/"
+    );
+    setResult(result);
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -49,11 +67,23 @@ export default function UserAccountScreen(props: Props) {
               label: "Create Post",
             },
           ]}
+          style={styles.segmentedButtons}
         />
       </SafeAreaView>
 
       {currentUser ? (
-        <Text style={styles.userText}>All Posts Created By {userName}</Text>
+        <View>
+          <TouchableOpacity
+            style={styles.pexelsButton}
+            onPress={openPexelsWebsite}
+          >
+            <Text style={styles.pexelsButtonText}>
+              Use Pexels To Download Any Kind Of Pictures To Create New Posts
+              Here
+            </Text>
+          </TouchableOpacity>
+          <Text style={styles.userText}>All Posts Created By {userName}</Text>
+        </View>
       ) : (
         <Text style={styles.userText}>Sign In To See All Your Posts Here</Text>
       )}
@@ -66,12 +96,33 @@ export default function UserAccountScreen(props: Props) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    paddingHorizontal: 20,
+    backgroundColor: "#f8f9fa",
+  },
   userText: {
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     padding: 10,
     color: "#333",
+  },
+  segmentedButtons: {
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  pexelsButton: {
+    backgroundColor: "#B0BEC5",
+    paddingVertical: 15,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    alignItems: "center",
+    marginVertical: 10,
+  },
+  pexelsButtonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "600",
+    textAlign: "center",
   },
 });

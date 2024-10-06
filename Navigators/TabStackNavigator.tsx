@@ -7,10 +7,10 @@ import React from "react";
 import { Text } from "react-native";
 import { useUser } from "../Components/User/UserProvider";
 import CreatePostScreen from "../Screens/CreatePostScreen";
-import SignInSignUpScreen from "../Screens/SignInSignUpScreen";
 import FavoriteScreen from "../Screens/FavoritePostsScreen";
-import StartPageScreen from "../Screens/StartPageScreen";
+import SignInSignUpScreen from "../Screens/SignInSignUpScreen";
 import SignOutScreen from "../Screens/SignOutScreen";
+import StartPageScreen from "../Screens/StartPageScreen";
 
 export type TabStackParamList = {
   StartPage: undefined;

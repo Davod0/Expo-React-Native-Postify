@@ -1,8 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Button, SafeAreaView, Text, TextInput } from "react-native";
-import { IPost, postList } from "../../data";
 import { useUser } from "../User/UserProvider";
 import { usePost } from "./PostProvider";
 import { Post, PostSchema } from "./PostSchema";
@@ -23,7 +21,6 @@ export default function PostForm({ navigation }: any) {
   });
 
   const onSubmit = (data: Post) => {
-    console.log("Post Formulärdata:", data);
     createPost(data);
     reset();
     navigation.navigate("StartPage");

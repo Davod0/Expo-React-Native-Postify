@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { StyleSheet, Text } from "react-native";
 import { Card } from "react-native-paper";
-import { updatePostOnServer } from "../../Actions/actions";
 import { IPost } from "../../data";
-import { useUser } from "../User/UserProvider";
 import PostLikedButton from "./PostLikedButton";
 
 interface Props {

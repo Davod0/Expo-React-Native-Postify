@@ -3,7 +3,6 @@ import { createContext, PropsWithChildren, useContext, useState } from "react";
 import { PostUserToServer } from "../../Actions/actions";
 import { IUser, usersList } from "../../data";
 import { User } from "./UserSchema";
-import { boolean } from "zod";
 
 interface ContextValue {
   users: IUser[];

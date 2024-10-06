@@ -16,12 +16,12 @@ I denna applikation det ska gå att:
 8. Användaren ska kunna se sin profil och alla inlägg som den har skapat
 
 - All expo (SDK) komponenter som används i projektet:
-  "minst fyra komponenter"
   [x] AsyncStorage: används för att lagra användaren i
   enheten som appen används i så att användaren behöver inte logga in varje gång appen startas.
-  [x] Battery : används för att hämta enhetens batteri nivå och visa en varning meddelande om batterinivån är låg medans appen körs.
+  [x] Battery : används för att hämta enhetens batteri nivå och visa en varning meddelande om batterinivån är låg medans appen används.
   [x] Flash-list: för att rendera olika listor av data snabbare.
-  []
+  [x] vector-icons: för att använda olika ikoner i appen som exempel (user ikon).
+  [x] web-browser: för att öppna en webbläsare (Pexels) från appen.
 
 - Alla React-native komponenter som används i projektet:
   [x] View
@@ -32,15 +32,15 @@ I denna applikation det ska gå att:
   [x] Button
   [x] Modal
   [x] ScrollView
+  [x] TouchableOpacity
 
-Extrena bibliotek som används i projektet:
-[x] React-native-navigation
-[x] React-hook-form
-[x] zod
-[x] hookform-resolvers-zod
-[x] react-native-paper
-[] React-native-image-picker
+- Extrena bibliotek som används i projektet:
+  [x] React-native-navigation
+  [x] React-hook-form
+  [x] zod
+  [x] hookform-resolvers-zod
+  [x] react-native-paper
 
-API:er som används i projektet:
-[] Pexels API
-[] Min egen Node.js server API (backend)
+- API:er som används i projektet:
+  [] Pexels API
+  [] Min egen Node.js server API (backend)

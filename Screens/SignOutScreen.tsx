@@ -1,8 +1,8 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
 import { useUser } from "../Components/User/UserProvider";
 import { TabStackParamList } from "../Navigators/TabStackNavigator";
-import { Button } from "react-native-paper";
 
 type Props = NativeStackScreenProps<TabStackParamList, "SignOut">;
 
