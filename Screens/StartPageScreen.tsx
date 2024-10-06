@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { FlashList } from "@shopify/flash-list";
+import React, { useEffect } from "react";
 import { ScrollView } from "react-native";
 import BatteryLevel from "../Components/BatteryLevel ";
 import PostCard from "../Components/Post/PostCrad";
@@ -26,9 +27,13 @@ export default function StartPageScreen() {
 
   return (
     <ScrollView>
-      {posts.map((post) => (
-        <PostCard post={post} key={post.id} />
-      ))}
+      <FlashList
+        renderItem={({ item }) => {
+          return <PostCard post={item} />;
+        }}
+        estimatedItemSize={50}
+        data={posts}
+      />
       <BatteryLevel />
     </ScrollView>
   );

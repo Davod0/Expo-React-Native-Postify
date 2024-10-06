@@ -1,25 +1,26 @@
 Postify
 
-Detta är ett projekt i Expo och Reat-native.
-En enklare version av en mobil applikation som används som en social media,
-projektet körs genom att köra: npm start i terminalen.
+Detta är ett projekt byggt med Expo och React Native.
+En enklare version av en mobilapplikation som fungerar som en social medieplattform.
+Projektet startas genom att köra "npm start" i terminalen.
 
 I denna applikation det ska gå att:
 
-1. skapa ett konto
-2. posta olika inlägg
-3. skriva innehåll för varje inlägg
-4. gilla andras inlägg
-5. Användaren ska kunna se alla inlägg den har gillast
-6. kunna logga in/logga ut med sin email och lösenord
-7. användaren ska kunna se sin profil coh alla inlägg den har skapat
+1. Skapa ett konto
+2. Logga in om man redan har ett konto
+3. Logga ut
+4. Posta inlägg med text och bild
+5. Gilla andras inlägg
+6. Användaren ska kunna se alla inlägg som den har gillat
+7. Kunna logga in/logga ut med sin e-postadress och lösenord
+8. Användaren ska kunna se sin profil och alla inlägg som den har skapat
 
 - All expo (SDK) komponenter som används i projektet:
   "minst fyra komponenter"
   [x] AsyncStorage: används för att lagra användaren i
   enheten som appen används i så att användaren behöver inte logga in varje gång appen startas.
   [x] Battery : används för att hämta enhetens batteri nivå och visa en varning meddelande om batterinivån är låg medans appen körs.
-  []
+  [x] Flash-list: för att rendera olika listor av data snabbare.
   []
 
 - Alla React-native komponenter som används i projektet:
